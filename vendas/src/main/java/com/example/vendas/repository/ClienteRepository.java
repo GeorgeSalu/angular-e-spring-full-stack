@@ -8,7 +8,7 @@ import com.example.vendas.model.Cliente;
 public class ClienteRepository {
 
 	public void persistir(Cliente cliente) {
-		// salva o client no banco de dados
+		// salva o cliente no banco de dados
 	}
 	
 }
