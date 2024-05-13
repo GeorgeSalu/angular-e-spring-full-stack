@@ -11,4 +11,9 @@ public class MinhaConfiguration {
 		return "sistema de vendas";
 	}
 	
+	@Bean(name = "outraConfiguracao")
+	public String outraConfiguracao() {
+		return "sistema de vendas";
+	}
+	
 }
