@@ -52,12 +52,12 @@ public class ClienteController {
 	
 	@PutMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void atualizar(@PathVariable Integer id,@RequestBody Cliente clienteatualizado) {
+	public void atualizar(@PathVariable Integer id,@RequestBody Cliente clienteAtualizado) {
 		repository.findById(id)
 				  .map(cliente -> {
 					  
-					  cliente.setNome(clienteatualizado.getNome());
-					  cliente.setCpf(clienteatualizado.getCpf());
+					  cliente.setNome(clienteAtualizado.getNome());
+					  cliente.setCpf(clienteAtualizado.getCpf());
 					  
 					  return repository.save(cliente);
 				  })
