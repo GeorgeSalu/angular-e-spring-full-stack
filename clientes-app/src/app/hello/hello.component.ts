@@ -2,10 +2,14 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: 'hello',
-    template: `
-        <h1>Hello world</h1>
-    `
+    templateUrl: './hello.component.html'
 })
 export class HelloComponent {
+
+    nome: string;
+
+    constructor() {
+        this.nome = "george"
+    }
 
 }
