@@ -3,34 +3,34 @@
     <li class="breadcrumb-item active">Consulta</li>
 </ol>
 <div class="container">
-<div class="row">
-    <div class="col-md-2">
-        <button class="btn btn-warning">novo</button>
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-warning">novo</button>
+        </div>
     </div>
-</div>
-<hr />
-<div class="row">
-    <div class="col-md-12">
-        <table class="table table-condesed table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Cpf</th>
-                    <th>Data cadastro</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let cliente of clientes">
-                    <td>{{ cliente.id }}</td>
-                    <td>{{ cliente.nome }}</td>
-                    <td>{{ cliente.cpf }}</td>
-                    <td>{{ cliente.dataCadastro }}</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condesed table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Cpf</th>
+                        <th>Data cadastro</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cliente of clientes">
+                        <td>{{ cliente.id }}</td>
+                        <td>{{ cliente.nome }}</td>
+                        <td>{{ cliente.cpf }}</td>
+                        <td>{{ cliente.dataCadastro }}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 </div>
