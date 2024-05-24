@@ -1,5 +1,7 @@
 package com.example.clientes.rest;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,11 @@ public class ClienteController {
 	@Autowired
 	public ClienteController(ClienteRepository repository) {
 		this.repository = repository;
+	}
+	
+	@GetMapping
+	public List<Cliente> obterTodos() {
+		return repository.findAll();
 	}
 	
 	@PostMapping
