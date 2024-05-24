@@ -10,9 +10,16 @@ export class ClientesFormComponent implements OnInit {
 
   cliente: Cliente;
 
-  constructor() { }
+  constructor() {
+    this.cliente = new Cliente();
+    this.cliente.nome = 'george';
+  }
 
   ngOnInit(): void {
+  }
+
+  clicar() {
+    console.log('cliquei')
   }
 
 }
