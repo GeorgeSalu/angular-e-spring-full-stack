@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../clientes';
 import { ClientesService } from 'src/app/clientes.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-clientes-form',
@@ -24,17 +25,18 @@ export class ClientesFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let params = this.activatedRouter.params;
-
-    if (params) {
-      this.id = params.value.id;
-      this.service
-        .getClienteById(this.id)
-        .subscribe(
-          response => this.cliente = response,
-          errorResponse => this.cliente = new Cliente()
-        )
-    }
+    let params: Observable<Params> = this.activatedRouter.params;
+    params.subscribe(urlParams => {
+      this.id = urlParams['id'];
+      if (this.id) {
+        this.service
+          .getClienteById(this.id)
+          .subscribe(
+            response => this.cliente = response,
+            errorResponse => this.cliente = new Cliente()
+          )
+      }
+    })
   }
 
   onSubmit() {
