@@ -31,7 +31,6 @@ public class ServicoPrestadoController {
 		this.clienteRepository = clienteRepository;
 		this.servicoPrestadoRepository = servicoPrestadoRepository;
 		this.bigDecimalConverter = bigDecimalConverter;
-		// TODO Auto-generated constructor stub
 	}
 	
 	@PostMapping
