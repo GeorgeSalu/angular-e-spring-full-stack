@@ -1,6 +1,7 @@
 package com.example.clientes.model.entity;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,5 +36,8 @@ public class ServicoPrestado {
 	
 	@Column
 	private BigDecimal valor;
+
+	@Column
+	private LocalDate data;
 	
 }
