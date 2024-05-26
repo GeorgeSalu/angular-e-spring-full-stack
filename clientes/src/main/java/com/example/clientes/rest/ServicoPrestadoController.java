@@ -18,7 +18,7 @@ import com.example.clientes.model.entity.Cliente;
 import com.example.clientes.model.entity.ServicoPrestado;
 import com.example.clientes.model.repository.ClienteRepository;
 import com.example.clientes.model.repository.ServicoPrestadoRepository;
-import com.example.clientes.rest.dto.ServicoPrestadoDTO;
+import com.example.clientes.rest.dto.ServicoPrestadoDto;
 import com.example.clientes.util.BigDecimalConverter;
 
 @RestController
@@ -38,7 +38,7 @@ public class ServicoPrestadoController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ServicoPrestado salvar(@RequestBody ServicoPrestadoDTO dto) {
+	public ServicoPrestado salvar(@RequestBody ServicoPrestadoDto dto) {
 		LocalDate data = LocalDate.parse(dto.getData(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 		
 		Integer idCliente = dto.getIdCliente();

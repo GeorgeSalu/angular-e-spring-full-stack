@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class ServicoPrestadoDTO {
+public class ServicoPrestadoDto {
 	private String descricao;
 	private String preco;
 	private String data;
