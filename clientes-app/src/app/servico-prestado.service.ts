@@ -23,7 +23,7 @@ export class ServicoPrestadoService {
   buscar(nome: string, mes: number): Observable<ServicoPrestadoBusca[]> {
     const httpParams = new HttpParams()
       .set("nome", nome)
-      .set("mes", mes.toString());
+      .set("mes", mes ? mes.toString() : '');
 
     const url = this.apiUrl + "?" + httpParams.toString();
     console.log(url);
