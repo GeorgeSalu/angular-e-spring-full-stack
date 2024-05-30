@@ -28,7 +28,7 @@ export class LoginComponent {
         console.log(response)
         this.router.navigate(['/home'])
       }, erroResponse => {
-        this.errors['usuario e senha incorretos']
+        this.errors['usuario e/ou senha incorretos']
       })
 
 
