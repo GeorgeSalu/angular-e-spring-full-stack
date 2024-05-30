@@ -18,6 +18,10 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
+  isAuthetucated(): boolean {
+    return false;
+  }
+
   salvar(usuario: Usuario): Observable<any> {
     return this.http.post<any>(this.apiURL, usuario);
   }
@@ -35,5 +39,6 @@ export class AuthService {
 
     return this.http.post(this.tokenUrl, params.toString(), { headers })
   }
+
 
 }
