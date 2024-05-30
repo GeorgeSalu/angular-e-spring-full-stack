@@ -32,7 +32,16 @@ import { TokenInterceptor } from './token.interceptor';
     ServicoPrestadoModule,
     FormsModule
   ],
-  providers: [ClientesService, ServicoPrestadoService, AuthService, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
+  providers: [
+    ClientesService,
+    ServicoPrestadoService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
