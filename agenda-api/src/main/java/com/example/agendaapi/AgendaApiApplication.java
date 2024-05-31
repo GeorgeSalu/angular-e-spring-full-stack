@@ -1,4 +1,4 @@
-package com.example.agenda_api;
+package com.example.agendaapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
