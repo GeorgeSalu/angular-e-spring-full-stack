@@ -15,9 +15,15 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "usuarios")
+@Data
+@Getter
+@Setter
 public class Usuario implements Serializable {
 	
 	private static final long serialVersionUID = 7658943280115167476L;
