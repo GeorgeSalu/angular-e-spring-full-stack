@@ -15,6 +15,8 @@ import jakarta.persistence.Table;
 @Table(name = "roles")
 public class Role implements Serializable {
 
+	private static final long serialVersionUID = -4512364684802238540L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;

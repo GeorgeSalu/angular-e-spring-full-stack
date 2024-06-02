@@ -20,6 +20,8 @@ import jakarta.persistence.UniqueConstraint;
 @Table(name = "usuarios")
 public class Usuario implements Serializable {
 	
+	private static final long serialVersionUID = 7658943280115167476L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
