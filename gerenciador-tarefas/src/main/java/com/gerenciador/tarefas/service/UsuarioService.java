@@ -26,7 +26,7 @@ public class UsuarioService {
 		this.iUsuarioRepository.deleteById(usuario.getId());
 	}
 	
-	public List<Usuario> obterUsuario() {
+	public List<Usuario> obterUsuarios() {
 		return this.iUsuarioRepository.findAll();
 	}
 	
