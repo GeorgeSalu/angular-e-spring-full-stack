@@ -19,22 +19,25 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class AutenticacaoService {
 	
+	private static final String BEARER = "Bearer ";
+	private static final String SIGNIN_KEY = "signinKey";
+	private static final String AUTHORITIES = "authorities";
 	private static final String HEADER_AUTHORIZATION = "Authorization";
 
 	static public void addJwtToken(HttpServletResponse response,Authentication authentication) {
 		
 		
 		Map<String,Object> claims = new HashMap<>();
-		claims.put("authorities", authentication.getAuthorities().stream().map(role -> role.getAuthority()).collect(Collectors.toList()));
+		claims.put(AUTHORITIES, authentication.getAuthorities().stream().map(role -> role.getAuthority()).collect(Collectors.toList()));
 		
 		String jwtToken = Jwts.builder()
 				.setSubject(authentication.getName())
 				.setExpiration(new Date(System.currentTimeMillis() + 3600000))
-				.signWith(SignatureAlgorithm.HS512, "signinKey")
+				.signWith(SignatureAlgorithm.HS512, SIGNIN_KEY)
 				.addClaims(claims)
 				.compact();
 		
-		response.addHeader(HEADER_AUTHORIZATION, "Bearer "+jwtToken);
+		response.addHeader(HEADER_AUTHORIZATION, BEARER+jwtToken);
 		response.addHeader("Access-Control-Expose-Headers", HEADER_AUTHORIZATION);
 		
 	}
@@ -46,14 +49,14 @@ public class AutenticacaoService {
 		if(token != null) {
 			
 			Claims user = Jwts.parser()
-					.setSigningKey("signinKey")
-					.parseClaimsJws(token.replace("Bearer ", ""))
+					.setSigningKey(SIGNIN_KEY)
+					.parseClaimsJws(token.replace(BEARER, ""))
 					.getBody();
 			
 			
 			if(user != null) {
 				
-				List<SimpleGrantedAuthority> permissoes =  ((ArrayList<String>)user.get("authorities"))
+				List<SimpleGrantedAuthority> permissoes =  ((ArrayList<String>)user.get(AUTHORITIES))
 						.stream()
 						.map(SimpleGrantedAuthority::new)
 						.collect(Collectors.toList());
