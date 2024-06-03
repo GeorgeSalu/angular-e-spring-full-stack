@@ -1,7 +1,6 @@
 package com.gerenciador.tarefas.filter;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
