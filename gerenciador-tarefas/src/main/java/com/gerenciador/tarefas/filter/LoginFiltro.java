@@ -43,7 +43,7 @@ public class LoginFiltro extends AbstractAuthenticationProcessingFilter {
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication authResult) throws IOException, ServletException {
 
-		AutenticacaoService.addJwtToken(response, authResult.getName());
+		AutenticacaoService.addJwtToken(response, authResult);
 
 	}
 	
