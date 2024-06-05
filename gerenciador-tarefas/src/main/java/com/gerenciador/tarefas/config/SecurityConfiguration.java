@@ -23,9 +23,6 @@ import com.gerenciador.tarefas.service.UsuarioAutenticadoService;
 public class SecurityConfiguration  {
 
 	@Autowired
-	private UsuarioAutenticadoService usuarioAutenticadoService;
-	
-	@Autowired
 	private AuthenticationConfiguration authenticationConfiguration;
 	
 	@Bean
