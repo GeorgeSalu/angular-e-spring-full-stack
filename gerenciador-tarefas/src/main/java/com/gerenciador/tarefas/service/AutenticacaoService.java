@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class AutenticacaoService {
 	
-	private static final int ONE_HOUR = 3600000;
+	private static final int EXPIRATION_TOKEN_ONE_HOUR = 3600000;
 	private static final String BEARER = "Bearer ";
 	private static final String SIGNIN_KEY = "signinKey";
 	private static final String AUTHORITIES = "authorities";
@@ -33,7 +33,7 @@ public class AutenticacaoService {
 		
 		String jwtToken = Jwts.builder()
 				.setSubject(authentication.getName())
-				.setExpiration(new Date(System.currentTimeMillis() + ONE_HOUR))
+				.setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TOKEN_ONE_HOUR))
 				.signWith(SignatureAlgorithm.HS512, SIGNIN_KEY)
 				.addClaims(claims)
 				.compact();
