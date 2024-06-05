@@ -16,7 +16,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.gerenciador.tarefas.filter.AutenticacaoFiltro;
 import com.gerenciador.tarefas.filter.LoginFiltro;
 import com.gerenciador.tarefas.permissoes.PermissaoEnum;
-import com.gerenciador.tarefas.service.UsuarioAutenticadoService;
 
 @Configuration
 @EnableWebSecurity
