@@ -29,13 +29,13 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 7658943280115167476L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 	
 	@Column(unique = true, length = 50)
 	private String username;
 	
-	@Column(length = 50)
+	@Column(length = 150)
 	private String password;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

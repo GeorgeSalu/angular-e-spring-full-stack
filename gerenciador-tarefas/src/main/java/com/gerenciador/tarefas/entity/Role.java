@@ -3,6 +3,7 @@ package com.gerenciador.tarefas.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.gerenciador.tarefas.permissoes.PermissaoEnum;
 
 import jakarta.persistence.Column;
@@ -36,6 +37,7 @@ public class Role implements Serializable {
 	private PermissaoEnum nome;
 	
 	@ManyToMany(mappedBy = "roles")
+	@JsonBackReference
 	private List<Usuario> usuarios;
 	
 }
