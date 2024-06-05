@@ -28,6 +28,8 @@ import lombok.Setter;
 @Table(name = "tarefas")
 public class Tarefa implements Serializable {
 
+	private static final long serialVersionUID = -3077120956588164195L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
