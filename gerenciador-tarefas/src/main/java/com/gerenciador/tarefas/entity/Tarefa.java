@@ -1,7 +1,6 @@
 package com.gerenciador.tarefas.entity;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 import org.hibernate.annotations.CreationTimestamp;
