@@ -1,7 +1,5 @@
 package com.gerenciador.tarefas.request;
 
-import com.gerenciador.tarefas.status.TarefaStatusEnum;
-
 import lombok.Getter;
 import lombok.Setter;
 
