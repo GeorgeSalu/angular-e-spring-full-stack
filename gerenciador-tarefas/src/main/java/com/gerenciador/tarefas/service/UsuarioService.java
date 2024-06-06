@@ -1,6 +1,7 @@
 package com.gerenciador.tarefas.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -58,6 +59,10 @@ public class UsuarioService {
 	
 	public List<Usuario> obterUsuarios() {
 		return this.iUsuarioRepository.findAll();
+	}
+	
+	public Optional<Usuario> obterUsuarioPorId(Long usuarioId) {
+		return this.iUsuarioRepository.findById(usuarioId);
 	}
 	
 }
