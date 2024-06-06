@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.gerenciador.tarefas.response.ErrorResponse;
 
-import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintViolation;
 
 @ControllerAdvice
