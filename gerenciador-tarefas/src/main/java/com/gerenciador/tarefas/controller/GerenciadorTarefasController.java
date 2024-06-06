@@ -26,6 +26,8 @@ import com.gerenciador.tarefas.response.ObterTarefasPaginadasResponse;
 import com.gerenciador.tarefas.response.ObterTarefasResponse;
 import com.gerenciador.tarefas.service.GerenciadorTarefaService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/gerenciador-tarefas")
 public class GerenciadorTarefasController {
@@ -34,7 +36,7 @@ public class GerenciadorTarefasController {
 	private GerenciadorTarefaService gerenciadorTarefaService;
 	
 	@PostMapping
-	public ResponseEntity<CadastrarTarefaResponse> salvarTarefa(@RequestBody CadastrarTarefaRequest request) {
+	public ResponseEntity<CadastrarTarefaResponse> salvarTarefa(@Valid @RequestBody CadastrarTarefaRequest request) {
 		
 		Tarefa tarefaSalva = gerenciadorTarefaService.salvarTarefa(request);
 		
