@@ -34,7 +34,7 @@ public class GerenciadorTarefasController {
 	private GerenciadorTarefaService gerenciadorTarefaService;
 	
 	@PostMapping
-	public ResponseEntity<CadastrarTarefaResponse> salvartarefa(@RequestBody CadastrarTarefaRequest request) {
+	public ResponseEntity<CadastrarTarefaResponse> salvarTarefa(@RequestBody CadastrarTarefaRequest request) {
 		
 		Tarefa tarefaSalva = gerenciadorTarefaService.salvarTarefa(request);
 		
