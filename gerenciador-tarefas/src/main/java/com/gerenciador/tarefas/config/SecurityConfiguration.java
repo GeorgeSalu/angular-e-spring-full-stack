@@ -44,6 +44,7 @@ public class SecurityConfiguration  {
 					.requestMatchers(HttpMethod.GET, "/teste-bem-vindo").hasAuthority(PermissaoEnum.ADMININSTRADOR.toString())
 					.requestMatchers(HttpMethod.GET, "/usuarios").hasAuthority(PermissaoEnum.USUARIO.toString())
 					.requestMatchers(HttpMethod.POST, "/usuarios").hasAuthority(PermissaoEnum.ADMININSTRADOR.toString())
+					.requestMatchers(HttpMethod.POST, "/gerenciador-tarefas").hasAuthority(PermissaoEnum.ADMININSTRADOR.toString())
 					.anyRequest().authenticated();
 			});
 		

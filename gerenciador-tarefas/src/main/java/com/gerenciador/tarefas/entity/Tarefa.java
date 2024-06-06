@@ -45,7 +45,7 @@ public class Tarefa implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private TarefaStatusEnum status;
 	
-	@Column(nullable = false)
+	@Column()
 	private Usuario responsavel;
 	
 	@Column(nullable = false)

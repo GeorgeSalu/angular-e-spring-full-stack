@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.gerenciador.tarefas.entity.Tarefa;
 import com.gerenciador.tarefas.repository.IGerenciadortarefasRepository;
 import com.gerenciador.tarefas.request.CadastrarTarefaRequest;
+import com.gerenciador.tarefas.status.TarefaStatusEnum;
 
 @Service
 public class GerenciadorTarefaService {
@@ -20,11 +21,10 @@ public class GerenciadorTarefaService {
 		
 		Tarefa tarefa = Tarefa.builder()
 							.quantidadeHorasEstimadas(request.getQuantidadeHorasEstimadas())
-							.status(request.getStatus())
+							.status(TarefaStatusEnum.CRIADA)
 							.titulo(request.getTitulo())
 							.descricao(request.getDescricao())
-							.responsavel(usuarioService.obterUsuarioPorId(request.getResponsavelId()).get())
-							.criador(usuarioService.obterUsuarioPorId(request.getResponsavelId()).get())
+							.criador(usuarioService.obterUsuarioPorId(request.getCriadorId()).get())
 							.build();
 							
 		return gerenciadortarefasRepository.save(tarefa);
