@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.gerenciador.tarefas.entity.Tarefa;
 import com.gerenciador.tarefas.repository.IGerenciadortarefasRepository;
+import com.gerenciador.tarefas.request.AtualizarTarefaResquest;
 import com.gerenciador.tarefas.request.CadastrarTarefaRequest;
 import com.gerenciador.tarefas.status.TarefaStatusEnum;
 
@@ -40,4 +41,27 @@ public class GerenciadorTarefaService {
 		return this.gerenciadortarefasRepository.findAll(pageable);
 	}
 	
+	public Tarefa atulizarTarefa(Long id,AtualizarTarefaResquest request) {
+		
+		Tarefa tarefa = this.gerenciadortarefasRepository.findById(id).get();
+		
+		tarefa.setQuantidadeHorasEstimadas(request.getQuantidadeHorasEstimadas());
+		tarefa.setStatus(request.getStatus());
+		tarefa.setTitulo(request.getTitulo());
+		tarefa.setDescricao(request.getDescricao());
+		tarefa.setResponsavel(usuarioService.obterUsuarioPorId(request.getResponsavelId()).get());
+		tarefa.setQuantidadeHorasRealizadas(request.getQuantidadeHorasRealizadas());
+		
+		this.gerenciadortarefasRepository.save(tarefa);
+		
+		return tarefa;
+	}
+	
+	public void excluirTarefa(Long id) {
+		this.gerenciadortarefasRepository.deleteById(id);
+	}
+	
 }
+
+
+
