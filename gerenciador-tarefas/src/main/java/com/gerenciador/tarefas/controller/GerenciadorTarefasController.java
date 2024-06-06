@@ -92,7 +92,7 @@ public class GerenciadorTarefasController {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<AtualizarTarefaResponse> atualizarTarefa(@PathVariable Long id,@RequestBody AtualizarTarefaResquest request) {
+	public ResponseEntity<AtualizarTarefaResponse> atualizarTarefa(@PathVariable Long id,@Valid @RequestBody AtualizarTarefaResquest request) {
 		
 		Tarefa tarefaAtualizada = gerenciadorTarefaService.atulizarTarefa(id, request);
 		
