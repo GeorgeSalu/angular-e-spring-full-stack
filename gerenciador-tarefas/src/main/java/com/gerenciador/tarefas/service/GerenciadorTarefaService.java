@@ -1,6 +1,8 @@
 package com.gerenciador.tarefas.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.gerenciador.tarefas.entity.Tarefa;
@@ -28,6 +30,14 @@ public class GerenciadorTarefaService {
 							.build();
 							
 		return gerenciadortarefasRepository.save(tarefa);
+	}
+	
+	public Page<Tarefa> obtemTarefasPorTitulo(String titulo,Pageable pageable) {
+		return this.gerenciadortarefasRepository.findByTituloContaining(titulo, pageable);
+	}
+	
+	public Page<Tarefa> obtemTodasTarefas(Pageable pageable) {
+		return this.gerenciadortarefasRepository.findAll(pageable);
 	}
 	
 }
