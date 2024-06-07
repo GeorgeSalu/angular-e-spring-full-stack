@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.gerenciador.tarefas.entity.Tarefa;
+import com.gerenciador.tarefas.excecoes.NaoPermitirExcluirException;
 import com.gerenciador.tarefas.repository.IGerenciadortarefasRepository;
 import com.gerenciador.tarefas.request.AtualizarTarefaResquest;
 import com.gerenciador.tarefas.request.CadastrarTarefaRequest;
@@ -58,6 +59,13 @@ public class GerenciadorTarefaService {
 	}
 	
 	public void excluirTarefa(Long id) {
+		
+		Tarefa tarefa = this.gerenciadortarefasRepository.findById(id).get();
+		
+		if(!TarefaStatusEnum.CRIADA.equals(tarefa.getStatus())) {
+			throw new NaoPermitirExcluirException();
+		}
+		
 		this.gerenciadortarefasRepository.deleteById(id);
 	}
 	
