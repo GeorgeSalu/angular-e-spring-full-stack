@@ -29,4 +29,34 @@ public class ExcecoesHandler {
 		return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
 	}
 	
+	@ExceptionHandler(NaoPermitidoAlterarStatusException.class)
+	public ResponseEntity<ErrorResponse> naoPermitirAlterarStatusrExceptionHandler(NaoPermitidoAlterarStatusException ex) {
+		
+		Map<String, String> response = new HashMap<>();
+		response.put("codigo", ErrosEnum.NAO_PERMITIDO_EXCLUIR.toString());
+		response.put("mensagem", ex.getMessage());
+		
+		ErrorResponse errorResponse = ErrorResponse.builder()
+			.status(HttpStatus.UNPROCESSABLE_ENTITY.toString())
+			.errors(Collections.singletonList(response))
+			.build();
+		
+		return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
+	}
+	
+	@ExceptionHandler(TarefaExistenteException.class)
+	public ResponseEntity<ErrorResponse> tarefaExistenteExceptionHandler(TarefaExistenteException ex) {
+		
+		Map<String, String> response = new HashMap<>();
+		response.put("codigo", ErrosEnum.NAO_PERMITIDO_EXCLUIR.toString());
+		response.put("mensagem", ex.getMessage());
+		
+		ErrorResponse errorResponse = ErrorResponse.builder()
+			.status(HttpStatus.UNPROCESSABLE_ENTITY.toString())
+			.errors(Collections.singletonList(response))
+			.build();
+		
+		return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
+	}
+	
 }

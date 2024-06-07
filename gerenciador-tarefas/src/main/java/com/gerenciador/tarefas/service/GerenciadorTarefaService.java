@@ -6,7 +6,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.gerenciador.tarefas.entity.Tarefa;
+import com.gerenciador.tarefas.excecoes.NaoPermitidoAlterarStatusException;
 import com.gerenciador.tarefas.excecoes.NaoPermitirExcluirException;
+import com.gerenciador.tarefas.excecoes.TarefaExistenteException;
 import com.gerenciador.tarefas.repository.IGerenciadortarefasRepository;
 import com.gerenciador.tarefas.request.AtualizarTarefaResquest;
 import com.gerenciador.tarefas.request.CadastrarTarefaRequest;
@@ -22,6 +24,12 @@ public class GerenciadorTarefaService {
 	private UsuarioService usuarioService;
 	
 	public Tarefa salvarTarefa(CadastrarTarefaRequest request) {
+		
+		Tarefa tarefaValidacao = gerenciadortarefasRepository.findByTituloOrDescricao(request.getTitulo(), request.getDescricao());
+		
+		if(tarefaValidacao != null) {
+			throw new TarefaExistenteException("ja existe uma tarefa com o mesmo titulo ou descricao");
+		}
 		
 		Tarefa tarefa = Tarefa.builder()
 							.quantidadeHorasEstimadas(request.getQuantidadeHorasEstimadas())
@@ -45,6 +53,18 @@ public class GerenciadorTarefaService {
 	public Tarefa atulizarTarefa(Long id,AtualizarTarefaResquest request) {
 		
 		Tarefa tarefa = this.gerenciadortarefasRepository.findById(id).get();
+		
+		if(tarefa.getStatus().equals(TarefaStatusEnum.FINALIZADA)) {
+			throw new NaoPermitidoAlterarStatusException("nao permitido mover tarefa que esta finalizada");
+		}
+		
+		if(tarefa.getStatus().equals(TarefaStatusEnum.CRIADA) && request.getStatus().equals(TarefaStatusEnum.FINALIZADA)) {
+			throw new NaoPermitidoAlterarStatusException("nao permitido mover a tarefa para finalizada se a mesma estiver com o status de criada");
+		}
+		
+		if(tarefa.getStatus().equals(TarefaStatusEnum.BLOQUEADA) && request.getStatus().equals(TarefaStatusEnum.FINALIZADA)) {
+			throw new NaoPermitidoAlterarStatusException("nao permitido mover a tarefa para finalizada se a mesma estiver com o status de bloqueada");
+		}
 		
 		tarefa.setQuantidadeHorasEstimadas(request.getQuantidadeHorasEstimadas());
 		tarefa.setStatus(request.getStatus());
