@@ -76,7 +76,6 @@ public class ContatoController {
 				is.close();
 				return bytes;
 			} catch (IOException e) {
-				// TODO: handle exception
 				return null;
 			}
 		}).orElse(null);
