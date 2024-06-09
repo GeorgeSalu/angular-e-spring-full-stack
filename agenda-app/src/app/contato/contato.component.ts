@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Contato } from './contato';
 import { ContatoService } from '../contato.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
