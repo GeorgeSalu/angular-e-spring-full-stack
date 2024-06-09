@@ -12,6 +12,7 @@ import { MatInputModule } from "@angular/material/input"
 
 import { ContatoComponent } from './contato/contato.component';
 import { ContatoService } from './contato.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ContatoService } from './contato.service';
     MatToolbarModule,
     MatInputModule,
     HttpClientModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule
   ],
   providers: [ContatoService],
