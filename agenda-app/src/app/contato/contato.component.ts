@@ -61,7 +61,7 @@ export class ContatoComponent implements OnInit {
       formData.append("foto", foto);
       this.service.upload(contato, formData)
         .subscribe(response => {
-          this.listarContatos();
+          response = this.listarContatos();
         })
     }
   }
