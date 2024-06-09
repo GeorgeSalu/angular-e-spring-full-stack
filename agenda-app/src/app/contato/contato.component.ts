@@ -53,4 +53,17 @@ export class ContatoComponent implements OnInit {
     })
   }
 
+  uploadFoto(event, contato) {
+    const files = event.target.files;
+    if (files) {
+      const foto = files[0];
+      const formData: FormData = new FormData();
+      formData.append("foto", foto);
+      this.service.upload(contato, formData)
+        .subscribe(response => {
+          this.listarContatos();
+        })
+    }
+  }
+
 }
