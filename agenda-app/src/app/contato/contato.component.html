@@ -1,7 +1,14 @@
-<mat-toolbar>Contatos</mat-toolbar>
+<mat-toolbar>
+    <mat-icon>account_circle</mat-icon>
+    Contatos
+</mat-toolbar>
 
 <mat-tab-group>
-    <mat-tab label="Todos"></mat-tab>
+    <mat-tab >
+        <ng-template mat-tab-label>
+            Todos
+        </ng-template>
+    </mat-tab>
     <mat-tab label="Novo">
         <mat-card class="half-width">
             <mat-card-title>Novo contato</mat-card-title>
