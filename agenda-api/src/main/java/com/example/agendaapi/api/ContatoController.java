@@ -46,7 +46,7 @@ public class ContatoController {
 		return repository.findAll();
 	}
 	
-	@PatchMapping("{id}/favoritos")
+	@PatchMapping("{id}/favoritar")
 	public void favorite(@PathVariable Integer id) {
 		Optional<Contato> contato = repository.findById(id);
 		contato.ifPresent(c -> {
