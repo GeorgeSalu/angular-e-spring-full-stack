@@ -18,11 +18,13 @@ import { MatDialogModule } from "@angular/material/dialog"
 import { ContatoComponent } from './contato/contato.component';
 import { ContatoService } from './contato.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContatoDetalheComponent } from './contato-detalhe/contato-detalhe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContatoComponent
+    ContatoComponent,
+    ContatoDetalheComponent
   ],
   imports: [
     BrowserModule,
