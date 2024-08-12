@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.gerenciador.tarefas.entity.Tarefa;
 
 @Repository
-public interface IGerenciadortarefasRepository extends JpaRepository<Tarefa, Long> {
+public interface IGerenciadorTarefasRepository extends JpaRepository<Tarefa, Long> {
 
 	Tarefa findByTituloOrDescricao(String titulo,String descricao);
 	
