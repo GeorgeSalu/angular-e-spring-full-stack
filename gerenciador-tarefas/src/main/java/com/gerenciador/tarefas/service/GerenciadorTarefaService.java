@@ -9,7 +9,7 @@ import com.gerenciador.tarefas.entity.Tarefa;
 import com.gerenciador.tarefas.excecoes.NaoPermitidoAlterarStatusException;
 import com.gerenciador.tarefas.excecoes.NaoPermitirExcluirException;
 import com.gerenciador.tarefas.excecoes.TarefaExistenteException;
-import com.gerenciador.tarefas.repository.IGerenciadorTarefasRepository;
+import com.gerenciador.tarefas.repository.GerenciadorTarefasRepository;
 import com.gerenciador.tarefas.request.AtualizarTarefaResquest;
 import com.gerenciador.tarefas.request.CadastrarTarefaRequest;
 import com.gerenciador.tarefas.status.TarefaStatusEnum;
@@ -18,7 +18,7 @@ import com.gerenciador.tarefas.status.TarefaStatusEnum;
 public class GerenciadorTarefaService {
 
 	@Autowired
-	private IGerenciadorTarefasRepository gerenciadortarefasRepository;
+	private GerenciadorTarefasRepository gerenciadortarefasRepository;
 	
 	@Autowired
 	private UsuarioService usuarioService;

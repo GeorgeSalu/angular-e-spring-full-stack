@@ -9,21 +9,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gerenciador.tarefas.entity.Usuario;
-import com.gerenciador.tarefas.repository.IRoleRepository;
-import com.gerenciador.tarefas.repository.IUsuarioRepository;
+import com.gerenciador.tarefas.repository.RoleRepository;
+import com.gerenciador.tarefas.repository.UsuarioRepository;
 
 @Service
 @Transactional
 public class UsuarioService {
 
 	@Autowired
-	private IUsuarioRepository iUsuarioRepository;
+	private UsuarioRepository iUsuarioRepository;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
-	private IRoleRepository iRoleRepository;
+	private RoleRepository iRoleRepository;
 	
 	public Usuario salvarUsuario(Usuario usuario) {
 		

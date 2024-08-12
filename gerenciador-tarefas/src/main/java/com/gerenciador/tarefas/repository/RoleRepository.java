@@ -7,7 +7,7 @@ import com.gerenciador.tarefas.entity.Role;
 import com.gerenciador.tarefas.permissoes.PermissaoEnum;
 
 @Repository
-public interface IRoleRepository extends JpaRepository<Role, Long>{
+public interface RoleRepository extends JpaRepository<Role, Long>{
 
 	Role findByNome(PermissaoEnum nome);
 	

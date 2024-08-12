@@ -13,14 +13,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gerenciador.tarefas.entity.Usuario;
-import com.gerenciador.tarefas.repository.IUsuarioRepository;
+import com.gerenciador.tarefas.repository.UsuarioRepository;
 
 @Service
 @Transactional
 public class UsuarioAutenticadoService implements UserDetailsService {
 
 	@Autowired
-	private IUsuarioRepository iUsuarioRepository;
+	private UsuarioRepository iUsuarioRepository;
 	
 	public UserDetails loadUserByUsername(String username) {
 		
